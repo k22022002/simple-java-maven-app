@@ -4,6 +4,11 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
+	stage('Checkout'){
+	    steps{
+		checkout scm
+	    }
+	}
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
@@ -19,10 +24,16 @@ pipeline {
                 }
             }
         }
+	stage('Package'){
+	    steps{
+		archiveArtifacts artifacts: 'target/*.jar',fingerprint: true
+		}
+	}
         stage('Deliver') { 
             steps {
-                sh './jenkins/scripts/deliver.sh' 
+                echo 'Deploying build artifact... (placeholder)'
             }
         }
     }
 }
+
