@@ -19,3 +19,4 @@ the "Deliver" stage of your Pipeline.
 hello
 test trigger
 test trigger
+test trigger
