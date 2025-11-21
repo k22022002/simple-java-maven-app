@@ -18,3 +18,4 @@ the "Deliver" stage of your Pipeline.
 // test webho112ok
 hello
 test trigger
+test trigger
